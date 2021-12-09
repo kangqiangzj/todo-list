@@ -1,18 +1,43 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="logo mr-2"></div>
+        <span>ToDoList</span>
+      </a>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/add">待办事项</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/done">已完成</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/delete">已删除</router-link>
+          </li>
+        </ul>
+    </nav>
+    <div class="main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld
   }
 })
 </script>
+<style lang="scss" scoped>
+  .logo{
+    background: url('~@/assets/logo.png') no-repeat center center;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+  }
+</style>
